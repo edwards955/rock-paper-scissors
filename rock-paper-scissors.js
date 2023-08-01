@@ -15,34 +15,72 @@ function getComputerChoice() {
 }
 
 function playRound(playerSelection, computerSelection) {
-    let playerChoice = playerSelection.toLowerCase();
-    switch (playerChoice) {
+    switch (playerSelection.toLowerCase()) {
         case 'rock':
             if (computerSelection === 'Rock') {
-                return `It's a tie!`;
+                console.log(`It's a tie!`);
+                return 0;
             } else if (computerSelection === 'Paper') {
-                return `You Lose! Paper beats Rock`;
+                console.log(`You Lose! Paper beats Rock`);
+                return -1;
             } else {
-                return `You Win! Rock beats Scissors!`;
+                console.log(`You Win! Rock beats Scissors!`);
+                return 1;
             }
             break;
         case 'paper':
             if (computerSelection === 'Paper') {
-                return `It's a tie!`;
+                console.log(`It's a tie!`);
+                return 0;
             } else if (computerSelection === 'Scissors') {
-                return `You Lose! Scissors beats Paper`;
+                console.log(`You Lose! Scissors beats Paper`);
+                return -1;
             } else {
-                return `You Win! Paper beats Rock!`;
+                console.log(`You Win! Paper beats Rock!`);
+                return 1;
             }
             break;
         case 'scissors':
             if (computerSelection === 'Scissors') {
-                return `It's a tie!`;
+                console.log(`It's a tie!`);
+                return 0;
             } else if (computerSelection === 'Rock') {
-                return `You Lose! Rock beats Scissors`;
+                console.log(`You Lose! Rock beats Scissors`);
+                return -1;
             } else {
-                return `You Win! Scissors beats Paper!`;
+                console.log(`You Win! Scissors beats Paper!`);
+                return 1;
             }
             break;
+        default:
+            console.log('Incorrect weapon entered.');
+            return -2;
+    }
+}
+
+function game() {
+    let playerScore = 0;
+    let computerScore = 0;
+    while (playerScore < 5 && computerScore < 5) {
+        let playerChoice = prompt('Select your weapon! Choose rock, paper or scissors!');
+        if (playerChoice === null || playerChoice === '') {
+            console.log('No weapon chosen!');
+            continue;
+        }
+        let score = playRound(playerChoice, getComputerChoice());
+        if (score === 1) {
+            playerScore++;
+        } else if (score === -1) {
+            computerScore++;
+        } else if (score === -2) {
+            continue;
+        }
+        console.log(`Player: ${playerScore}`);
+        console.log(`Computer: ${computerScore}`);
+    }
+    if (playerScore > computerScore) {
+        console.log('Congratulations, human! You are victorious!');
+    } else {
+        console.log('Unfortunately, the algorithm wins this time.');
     }
 }
