@@ -12,9 +12,17 @@ buttons.forEach(button => {
     });
 });
 
+const resetButton = document.querySelector('#reset');
+resetButton.addEventListener('click', () => {
+    playerScore = 0;
+    computerScore = 0;
+    scores.textContent = `Player: ${playerScore} Computer: ${computerScore}`
+    results.textContent = 'Select your weapon! Choose rock, paper or scissors!';
+})
+
+// Initialize scores and score display
 let playerScore = 0;
 let computerScore = 0;
-
 const scores = document.querySelector('#scores');
 scores.textContent = `Player: ${playerScore} Computer: ${computerScore}`
 
