@@ -8,6 +8,7 @@ buttons.forEach(button => {
     button.addEventListener('click', () => {
         let roundResult = playRound(button.getAttribute('id'), getComputerChoice());
         updateScore(roundResult);
+        checkForWinner();
     });
 });
 
@@ -76,6 +77,16 @@ function updateScore(roundResult) {
         playerScore++;
     } else if (roundResult === -1) {
         computerScore++;
+    }
+}
+
+function checkForWinner() {
+    if (playerScore === 5 || computerScore === 5) {
+        if (playerScore > computerScore) {
+            results.textContent = 'Congratulations, human! You are victorious!';
+        } else {
+            results.textContent = 'Unfortunately, the algorithm wins this time.';
+        }
     }
 }
 
