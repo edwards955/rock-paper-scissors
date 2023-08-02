@@ -21,7 +21,7 @@ function restartGame() {
     playerScore = 0;
     computerScore = 0;
     results.textContent = 'Select your weapon! Choose rock, paper or scissors!';
-    scores.textContent = `Player: ${playerScore} Computer: ${computerScore}`
+    scores.textContent = `Player: ${playerScore} | Computer: ${computerScore}`
 }
 
 function getComputerChoice() {
@@ -84,10 +84,10 @@ function playRound(playerSelection, computerSelection) {
 function updateScore(roundResult) {
     if (roundResult === 1) {
         playerScore++;
-        scores.textContent = `Player: ${playerScore} Computer: ${computerScore}`
+        scores.textContent = `Player: ${playerScore} | Computer: ${computerScore}`
     } else if (roundResult === -1) {
         computerScore++;
-        scores.textContent = `Player: ${playerScore} Computer: ${computerScore}`
+        scores.textContent = `Player: ${playerScore} | Computer: ${computerScore}`
     }
 }
 
