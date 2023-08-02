@@ -1,3 +1,7 @@
+// Initialize results display
+const results = document.querySelector('#results');
+results.textContent = 'Welcome!';
+
 // Assign Rock, Paper, or Scissors to appropriate button clicks
 const buttons = document.querySelectorAll('button');
 buttons.forEach(button => {
@@ -26,43 +30,40 @@ function playRound(playerSelection, computerSelection) {
     switch (playerSelection.toLowerCase()) {
         case 'rock':
             if (computerSelection === 'Rock') {
-                console.log(`It's a tie!`);
+                results.textContent = `It's a tie!`;
                 return 0;
             } else if (computerSelection === 'Paper') {
-                console.log(`You Lose! Paper beats Rock`);
+                results.textContent = `You Lose! Paper beats Rock`;
                 return -1;
             } else {
-                console.log(`You Win! Rock beats Scissors!`);
+                results.textContent = `You Win! Rock beats Scissors!`;
                 return 1;
             }
             break;
         case 'paper':
             if (computerSelection === 'Paper') {
-                console.log(`It's a tie!`);
+                results.textContent = `It's a tie!`;
                 return 0;
             } else if (computerSelection === 'Scissors') {
-                console.log(`You Lose! Scissors beats Paper`);
+                results.textContent = `You Lose! Scissors beats Paper`;
                 return -1;
             } else {
-                console.log(`You Win! Paper beats Rock!`);
+                results.textContent = `You Win! Paper beats Rock!`;
                 return 1;
             }
             break;
         case 'scissors':
             if (computerSelection === 'Scissors') {
-                console.log(`It's a tie!`);
+                results.textContent = `It's a tie!`;
                 return 0;
             } else if (computerSelection === 'Rock') {
-                console.log(`You Lose! Rock beats Scissors`);
+                results.textContent = `You Lose! Rock beats Scissors`;
                 return -1;
             } else {
-                console.log(`You Win! Scissors beats Paper!`);
+                results.textContent = `You Win! Scissors beats Paper!`;
                 return 1;
             }
             break;
-        default:
-            console.log('Incorrect weapon entered.');
-            return -2;
     }
 }
 
