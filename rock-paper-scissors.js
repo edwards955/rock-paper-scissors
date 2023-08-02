@@ -6,9 +6,13 @@ results.textContent = 'Welcome!';
 const buttons = document.querySelectorAll('button');
 buttons.forEach(button => {
     button.addEventListener('click', () => {
-        playRound(button.getAttribute('id'), getComputerChoice())
+        let roundResult = playRound(button.getAttribute('id'), getComputerChoice());
+        updateScore(roundResult);
     });
 });
+
+let playerScore = 0;
+let computerScore = 0;
 
 function getComputerChoice() {
     let choice = Math.floor(Math.random() * 3);
@@ -64,6 +68,14 @@ function playRound(playerSelection, computerSelection) {
                 return 1;
             }
             break;
+    }
+}
+
+function updateScore(roundResult) {
+    if (roundResult === 1) {
+        playerScore++;
+    } else if (roundResult === -1) {
+        computerScore++;
     }
 }
 
