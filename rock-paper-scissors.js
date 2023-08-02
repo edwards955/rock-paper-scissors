@@ -1,3 +1,11 @@
+// Assign Rock, Paper, or Scissors to appropriate button clicks
+const buttons = document.querySelectorAll('button');
+buttons.forEach(button => {
+    button.addEventListener('click', () => {
+        playRound(button.getAttribute('id'), getComputerChoice())
+    });
+});
+
 function getComputerChoice() {
     let choice = Math.floor(Math.random() * 3);
     switch (choice) {
