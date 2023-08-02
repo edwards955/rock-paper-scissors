@@ -15,6 +15,9 @@ buttons.forEach(button => {
 let playerScore = 0;
 let computerScore = 0;
 
+const scores = document.querySelector('#scores');
+scores.textContent = `Player: ${playerScore} Computer: ${computerScore}`
+
 function getComputerChoice() {
     let choice = Math.floor(Math.random() * 3);
     switch (choice) {
@@ -75,8 +78,10 @@ function playRound(playerSelection, computerSelection) {
 function updateScore(roundResult) {
     if (roundResult === 1) {
         playerScore++;
+        scores.textContent = `Player: ${playerScore} Computer: ${computerScore}`
     } else if (roundResult === -1) {
         computerScore++;
+        scores.textContent = `Player: ${playerScore} Computer: ${computerScore}`
     }
 }
 
