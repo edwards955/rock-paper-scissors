@@ -1,8 +1,8 @@
-// Initialize results display
-const results = document.querySelector('#results');
-results.textContent = 'Select your weapon! Choose rock, paper or scissors!';
 
-// Assign Rock, Paper, or Scissors to appropriate button clicks
+let playerScore = 0;
+let computerScore = 0;
+
+const results = document.querySelector('#results');
 const buttons = document.querySelectorAll('button');
 buttons.forEach(button => {
     button.addEventListener('click', () => {
@@ -11,20 +11,18 @@ buttons.forEach(button => {
         checkForWinner();
     });
 });
-
+const scores = document.querySelector('#scores');
 const resetButton = document.querySelector('#reset');
-resetButton.addEventListener('click', () => {
+resetButton.addEventListener('click', restartGame);
+
+restartGame();
+
+function restartGame() {
     playerScore = 0;
     computerScore = 0;
-    scores.textContent = `Player: ${playerScore} Computer: ${computerScore}`
     results.textContent = 'Select your weapon! Choose rock, paper or scissors!';
-})
-
-// Initialize scores and score display
-let playerScore = 0;
-let computerScore = 0;
-const scores = document.querySelector('#scores');
-scores.textContent = `Player: ${playerScore} Computer: ${computerScore}`
+    scores.textContent = `Player: ${playerScore} Computer: ${computerScore}`
+}
 
 function getComputerChoice() {
     let choice = Math.floor(Math.random() * 3);
